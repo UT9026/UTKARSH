@@ -1,0 +1,884 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login | GDB online Debugger </title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Login to OnlineGDB account">
+    <meta name="keywords" content="">
+<meta name="google-site-verification" content="LRk_5wLIzc43hz9wV6QksHTiqYHM1CoAbHZVzigvn9s" />
+    <meta property="og:title" content="Login |"/>
+    <meta property="og:site_name" content="GDB online Debugger"/>
+    <meta property="og:description" content="Login to OnlineGDB account"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/public/css/onlinegdb.css" />
+    
+    
+    <script>  </script>
+    
+    
+    <script type="text/javascript" src="/public/js/onlinegdb.js"></script>
+    <script type="text/javascript" src="/public/js/ace/ace.js"></script>
+    <script type="text/javascript" src="/public/js/ace/ext-language_tools.js"></script>
+    <script type="text/javascript" src="/public/js/editor.js" defer></script>
+    <script type="text/javascript" src="/public/js/main.js" defer></script>
+    
+
+    
+       
+<style type="text/css">
+            html, body {
+                height: 100%;
+                min-height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .split-pane-divider{
+                background: #aaa;
+            }
+            
+            #left-component {
+                width: 20%;
+/*                min-width: 20vw;
+                max-width: 20vw;*/
+                background-color: #337ab7;
+            }
+            #right-left-component {
+                width: 100%;
+                background-color: #f5f5f5;
+            }
+            #right-right-component {
+                left: 100%;
+                margin-left:1px;
+                /*min-width: 15em;*/
+                background-color: #f5f5f5;
+            }
+            #top-component {
+                height: 75%;
+                position: relative;
+                background-color: #f5f5f5;
+            }
+            #my-divider {
+                left: 20%; /* Same as left component width */
+                width: 2px;
+            }
+            #my-divider1 {
+				top: 75%;
+				height: 7px;
+                background-color:#bdbdbd;
+			}
+            #my-divider2 {
+                left: 100%; /* Same as left component width */
+                width: 1px;
+            }
+            #bottom-component {
+                background-color: #f5f5f5;
+                top:75%;
+                margin-top: 1px;
+            }
+            #right-component {
+                background-color: #f5f5f5;
+/*                max-width:80vw;
+                min-width:80vw;
+                min-width:17em;*/
+                
+                left: 20%;  /* Same as left component width */
+                
+                /*margin-left: 2px;  /* Same as divider width */
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container" style="width:100%;padding:0px;margin:0px">
+
+    <div class="col-sm-12" style="margin:0px;padding:0px">
+        <div style="height:100vh">
+<div class="split-pane fixed-left">
+    <div class="split-pane-component " id="left-component" style="background-color: #125792;">
+        <div style="background-color: #125792; padding:10px 0px 0px 0px">
+          <a id="btn_close_header" onclick="fold_left_bar();"><span class="glyphicon glyphicon-menu-left" aria-hidden="true" style="z-index:100;background-color:#0f3a5f;padding:20px 0px;"></span>
+          
+          <h4 id="header_logo" style="width:100%;text-align:center;margin:0px; border-bottom: 0px solid #94c5ee; padding-bottom: 0px;">
+            <a  href="/">
+              <span class="glyphicon glyphicon-flash" style="padding: 5px; border: 3px solid;" aria-hidden="true"></span> 
+              <span class="to_be_hidden">
+          &nbsp;&nbsp;OnlineGDB <sup> beta</sup>
+          </span>
+          </a>
+          </h4>
+          
+          <span class="tagline to_be_hidden">
+              <h1 style="font-size:12px;padding:0px; margin:0px">online compiler and debugger for c/c++</h1>
+        </span>
+          </div>
+          <div class="to_be_hidden">
+          <div style="text-align: center;    color: #ccd7dd;    padding: 10px 0px;    font-style: italic;    border-top: 1px solid #658a9e;    border-bottom: 1px solid #658a9e;">
+              
+              code. compile. run. debug. share.
+              
+          </div>
+          <ul class="nav nav-tabs nav-stacked text-center" style="background-color: #337ab7; border-bottom:1px solid #658a9e">
+                
+                <li id="navbar-ide"><a href="/">IDE</a></li>
+                
+                <li ><a href="/myfiles">My Projects</a></li>
+                
+                <li ><a href="http://learn.onlinegdb.com">Learn Programming</a></li>
+                <li ><a href="http://question.onlinegdb.com">Programming Questions</a></li>
+                
+                <li id="login_logout_span"><a href="/login">Login</a></li>
+                
+          </ul>
+        <div class="addthis_inline_share_toolbox"></div>
+        <!--
+        <center>
+        <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+<a class="dbox-donation-button" href="https://donorbox.org/donate-to-onlinegdb" style="background:#5cb85c url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat 18px center; color: #fff;text-decoration: none;font-family: Verdana,sans-serif;display: inline-block;font-size: 14px;padding: 6px 17px 6px 56px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; box-shadow: 0 1px 0 0 #408040; text-shadow: 0 1px rgba(0, 0, 0, 0.3);" >Donate</a>
+</center> -->
+<center>
+    
+<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=onlinegdbcom" id="_carbonads_js"></script>
+    
+</center>
+        <footer class="container-fluid text-center" style="bottom:0px;left:0px;right:0px;position:absolute;padding:3px;">
+        <style type="text/css">
+#footer a {
+    font-weight: normal;
+    text-decoration: none;
+}
+#footer a:hover {
+    color:white;
+    text-decoration: underline;
+}
+</style>
+<div id="footer">
+    <span class="text-center" style="font-weight:normal; border-bottom:1px solid #658a9e">
+        <a href="/about">About</a>
+        &bull; <a href="/faq" >FAQ</a>
+        &bull; <a href="/blog/" >Blog</a>
+        <!--<li ><a href="/contact?cat=feature" >Feature Request</a></li>-->
+        <!--<li ><a href="/contact?cat=bug" >Report Bug</a></li> -->
+        &bull; <a href="/termsofuse" >Terms of Use</a> 
+        &bull; <a href="/contact" >Contact Us</a>
+        &bull; <a href="http://www.gdbtutorial.com/" target='_blank' >GDB Tutorial</a>
+        &bull; <a href="/credits"> Credits </a></span>
+    <div style="clear:both"></div>
+        <!--<li><a href="http://www.whizcoder.com/" target='_blank' >Online Java/Python Debugger</a></li>-->
+    
+<span style="float:none;clear:both">2018 &copy; GDB Online</span>
+</div>
+        </footer>
+        </div>
+    </div>
+    <div class="split-pane-divider hide" id="my-divider"></div>
+    <div class="split-pane-component" id="right-component">
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<style>
+.panel-login {
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #029f5b;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #59B2E0;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+.forgot-password {
+	text-decoration: underline;
+	color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: underline;
+	color: #666;
+}
+
+.btn-register {
+	background-color: #1CB94E;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}
+
+</style>
+
+
+    <script src="/public/js/main.js" defer></script>
+    
+<div style="width:100%">
+    <div class="omb_login">
+        <h3 class="omb_authTitle">Login with</h3>
+            <!--or <a href="#" style="font-size:24px; color:#337ab7">Sign up</a></h3>-->
+            <div class="row1 omb_row-sm-offset-3 omb_socialButtons">
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" onclick="login('googleplus',function(){window.location.href='/';})" class="btn btn-lg btn-block omb_btn-google">
+                        <i class="fa fa-facebook visible-xs"></i>
+                        <span class="hidden-xs">Google+</span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" onclick="login('facebook',function(){window.location.href='/';})" class="btn btn-lg btn-block omb_btn-facebook">
+                        <i class="fa fa-twitter visible-xs"></i>
+                        <span class="hidden-xs">Facebook</span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" onclick="login('github',function(){window.location.href='/';})" class="btn btn-lg btn-block omb_btn-github">
+                        <i class="fa fa-google-plus visible-xs"></i>
+                        <span class="hidden-xs">Github</span>
+                    </a>
+                </div>
+            </div>
+            <!--
+		<div class="row omb_row-sm-offset-3 omb_loginOr">
+			<div class="col-xs-12 col-sm-6">
+				<hr class="omb_hrOr">
+				<span class="omb_spanOr">or</span>
+			</div>
+		</div>
+
+		<div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-6">	
+			    <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" name="username" placeholder="email address">
+					</div>
+					<span class="help-block"></span>
+										
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input  type="password" class="form-control" name="password" placeholder="Password">
+					</div>
+                    <span class="help-block">Password error</span>
+
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+				</form>
+			</div>
+    	</div>
+		<div class="row omb_row-sm-offset-3">
+			<div class="col-xs-12 col-sm-3">
+				<label class="checkbox">
+					<input type="checkbox" value="remember-me">Remember Me
+				</label>
+			</div>
+			<div class="col-xs-12 col-sm-3">
+				<p class="omb_forgotPwd">
+					<a href="#">Forgot password?</a>
+				</p>
+			</div>
+		</div>	    	-->
+        
+		<div style="clear:both"></div>
+      <center><h3>or</h3></center>
+      <div class="container1 hide1">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" role="form" style="display: block;" action="/login" method="post">
+                                    
+									<div class="form-group">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="/forgotpassword" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="row col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+            <div class="panel-body text-center">
+                Don't have account yet? <a href="/register">Register</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+
+
+</div>
+
+
+
+    </div>
+</div>
+        </div>
+    </div>
+        </div>
+
+    <!-- Runtime exceeds reason Modal -->
+    <div id="runtimeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Possible reasons for Runtime Exceed error</h4> </div>
+                <div class="modal-body">
+                    <p>
+                    <ol>
+                        <li>If your program is reading input from standard input and you forgot to provide input via stdin.</li>
+                        <li>Your program contains infinite loop, which may never break.</li>
+                        <li>Your program contains infinite recursive function calls.</li>
+                        <li>May be your program is trying to process large data and it takes much time to process</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- generic modal -->
+    <div id="genericModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4> </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="ok-btn btn btn-default" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- New Version Available Modal -->
+    <div id="newVersionModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Version Available</h4> </div>
+                <div class="modal-body">
+                    <p>
+                    New Version of OnlineGDB is available. Please save your data and refresh page to update.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Code Save Modal -->
+    <div id="saveCodeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Save Project</h4> </div>
+                <div class="modal-body">
+                    <div>
+                        <form>
+                        <div class="form-group">
+                            <label for="name">Name of Project:</label>
+                            <input type="text" class="form-control" id="project_name" value="">
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="shareCode(true)">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete file Modal -->
+    <div id="deleteFileModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center><h4 class="modal-title">Are you sure you want to delete file `<span id='delete_file_name'></span>`?</h4> 
+                    </center>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                        <button type="button" class="btn btn-default btn-ok">Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- generic confirm Modal -->
+    <div id="confirmModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center><h4 class="modal-title"></h4></center>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                        <button type="button" class="btn btn-default btn-ok">Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- New file Modal -->
+    <div id="newFileModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New File</h4> </div>
+                <div class="modal-body">
+                    <div>
+                        <form>
+                        <div class="form-group">
+                            <label for="name">Name of new file:</label>
+                            <input type="text" class="form-control" id="new_file_name" value="untitled">
+                        </div>
+                        <button type="button" class="btn btn-default btn-ok">ok</button>
+                        <span class="error_message"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Rename file Modal -->
+    <div id="renameFileModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Rename File</h4> </div>
+                <div class="modal-body">
+                    <div>
+                        <form>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="edit_file_name" value="">
+                        </div>
+                        <button type="button" class="btn btn-default btn-ok">ok</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                        <span class="error_message"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Code Share Modal -->
+    <div id="shareCodeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Share Link</h4> </div>
+                <center class="msg">source code is copied to below link.</center>
+                <div class="modal-body" style="text-align:center">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Server disconnected Modal -->
+    <div id="serverDisconnectedModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Lost connection to server</h4> </div>
+                <div class="modal-body">
+                    <p>Oops! Connection to server is lost. Please refresh the page to reconnect and debug again.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Debugging session stopped Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Debug session stopped</h4> </div>
+                <div class="modal-body">
+                    <p>Debug session is being stopped due to inactivity.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Debugging session stopped Modal -->
+    <div id="noDebugPythonModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center>
+                    <h4 class="modal-title">Debug mode for <span class="lang">python</span> program is not yet supported.</h4> 
+                    </center>
+                    </div>
+                    
+                <div class="modal-footer">
+                    <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ok</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login form modal -->
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login to your account</h4> </div>
+                <div class="modal-body">
+                    <div style="width:100%">
+                    <div class="omb_login">
+                        <h3 class="omb_authTitle">Login with
+                            <!--or <a href="#" style="font-size:24px; color:#337ab7">Sign up</a></h3>-->
+                            <div class="row omb_row-sm-offset-31 omb_socialButtons">
+                                <div class="col-xs-4">
+                                    <a href="#" onclick="login('googleplus')" class="btn btn-lg btn-block omb_btn-google">
+                                        <i class="fa fa-facebook visible-xs"></i>
+                                        <span class="hidden-xs">Google+</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#" onclick="login('facebook')" class="btn btn-lg btn-block omb_btn-facebook">
+                                        <i class="fa fa-twitter visible-xs"></i>
+                                        <span class="hidden-xs">Facebook</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#" onclick="login('github')" class="btn btn-lg btn-block omb_btn-github">
+                                        <i class="fa fa-google-plus visible-xs"></i>
+                                        <span class="hidden-xs">Github</span>
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Run session stopped Modal -->
+    <div id="myModalRun" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Run Console session stopped</h4> </div>
+                <div class="modal-body">
+                    <p>Run Console is being stopped due to inactivity.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Editor Info Modal -->
+    <div id="infoModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Keyboard Shortcuts</h4> </div>
+                <div class="modal-body"> <pre><b>IDE Shortcuts:</b>
+New file : Ctrl-M
+Run Code : F9
+Debug Code : F8
+Save Project : Ctrl-S
+Beautify Code : Ctrl-B
+Settings Menu : Ctrl-Shift-S
+Info : Ctrl-I
+
+<b>Editor Shortcuts:</b>
+showSettingsMenu : Ctrl-,
+goToNextError : Alt-E
+goToPreviousError : Alt-Shift-E
+selectall : Ctrl-A
+gotoline : Ctrl-L
+fold : Alt-L|Ctrl-F1
+unfold : Alt-Shift-L|Ctrl-Shift-F1
+toggleFoldWidget : F2
+toggleParentFoldWidget : Alt-F2
+foldOther : Alt-0
+unfoldall : Alt-Shift-0
+findnext : Ctrl-K
+findprevious : Ctrl-Shift-K
+selectOrFindNext : Alt-K
+selectOrFindPrevious : Alt-Shift-K
+find : Ctrl-F
+overwrite : Insert
+selecttostart : Ctrl-Shift-Home
+gotostart : Ctrl-Home
+selectup : Shift-Up
+golineup : Up
+selecttoend : Ctrl-Shift-End
+gotoend : Ctrl-End
+selectdown : Shift-Down
+golinedown : Down
+selectwordleft : Ctrl-Shift-Left
+gotowordleft : Ctrl-Left
+selecttolinestart : Alt-Shift-Left
+gotolinestart : Alt-Left|Home
+selectleft : Shift-Left
+gotoleft : Left
+selectwordright : Ctrl-Shift-Right
+gotowordright : Ctrl-Right
+selecttolineend : Alt-Shift-Right
+gotolineend : Alt-Right|End
+selectright : Shift-Right
+gotoright : Right
+selectpagedown : Shift-Pagedown
+gotopagedown : Pagedown
+selectpageup : Shift-Pageup
+gotopageup : Pageup
+scrollup : Ctrl-Up
+scrolldown : Ctrl-Down
+selectlinestart : Shift-Home
+selectlineend : Shift-End
+togglerecording : Ctrl-Alt-E
+replaymacro : Ctrl-Shift-E
+jumptomatching : Ctrl-P
+selecttomatching : Ctrl-Shift-P
+expandToMatching : Ctrl-Shift-M
+removeline : Ctrl-D
+duplicateSelection : Ctrl-Shift-D
+sortlines : Ctrl-Alt-S
+togglecomment : Ctrl-/
+toggleBlockComment : Ctrl-Shift-/
+modifyNumberUp : Ctrl-Shift-Up
+modifyNumberDown : Ctrl-Shift-Down
+replace : Ctrl-H
+undo : Ctrl-Z
+redo : Ctrl-Shift-Z|Ctrl-Y
+copylinesup : Alt-Shift-Up
+movelinesup : Alt-Up
+copylinesdown : Alt-Shift-Down
+movelinesdown : Alt-Down
+del : Delete
+backspace : Shift-Backspace|Backspace
+cut_or_delete : Shift-Delete
+removetolinestart : Alt-Backspace
+removetolineend : Alt-Delete
+removewordleft : Ctrl-Backspace
+removewordright : Ctrl-Delete
+outdent : Shift-Tab
+indent : Tab
+blockoutdent : Ctrl-[
+blockindent : Ctrl-]
+transposeletters : Ctrl-T
+touppercase : Ctrl-U
+tolowercase : Ctrl-Shift-U
+expandtoline : Ctrl-Shift-L
+addCursorAbove : Ctrl-Alt-Up
+addCursorBelow : Ctrl-Alt-Down
+addCursorAboveSkipCurrent : Ctrl-Alt-Shift-Up
+addCursorBelowSkipCurrent : Ctrl-Alt-Shift-Down
+selectMoreBefore : Ctrl-Alt-Left
+selectMoreAfter : Ctrl-Alt-Right
+selectNextBefore : Ctrl-Alt-Shift-Left
+selectNextAfter : Ctrl-Alt-Shift-Right
+splitIntoLines : Ctrl-Alt-L
+alignCursors : Ctrl-Alt-A
+findAll : Ctrl-Alt-K
+showKeyboardShortcuts : Ctrl-Alt-H
+          </pre> </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var isLoggedIn =  false;
+    $(document).ready(function() {
+        $('div.split-pane').splitPane();
+    });
+    </script>
+    <!-- Hotjar Tracking Code for www.onlinegdb.com -->
+
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-79897653-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!--
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:549131,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>-->
+<!--
+<script>
+window['_fs_debug'] = false;
+window['_fs_host'] = 'fullstory.com';
+window['_fs_org'] = '64M0D';
+window['_fs_namespace'] = 'FS';
+(function(m,n,e,t,l,o,g,y){
+    if (e in m && m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'); return;}
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){g(l,v)};
+    g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+    g.clearUserCookie=function(c,d,i){if(!c || document.cookie.match('fs_uid=[`;`]*`[`;`]*`[`;`]*`')){
+    d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0).toUTCString();i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}};
+})(window,document,window['_fs_namespace'],'script','user');
+</script>
+-->
+        <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a770c71976bf87"></script> 
+<!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a770c71976bf87"></script>-->
+<!--Start of Tawk.to Script-->
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/58ba733c97fbd80a94f364e9/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+
+<!--End of Tawk.to Script-->
+
+
+
+   <script src="https://cdn.ravenjs.com/3.14.2/raven.min.js" crossorigin="anonymous"></script>
+    <script>Raven.config('https://33e437c2b49247e2995f75c8bde618e1@sentry.io/164141').install();</script>
+
+</body>
+
+</html>
